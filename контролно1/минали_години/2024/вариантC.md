@@ -3,7 +3,7 @@
 
 $
 \begin{cases}
-y' = (\dfrac{y + 4x - 8}{4x - 4})^2
+y' = \left(\dfrac{y + 4x - 8}{4x - 4}\right)^2
 \\ 
 y(0) = 4
 \end{cases}
