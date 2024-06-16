@@ -1,13 +1,12 @@
 ### Задача 1
 Решете задачата на Коши:
 
-```math
+$$
 \begin{cases}
-y' = \left(\dfrac{y + 4x - 8}{4x - 4}\right)^2
-\\ 
+y' = \left(\dfrac{y + 4x - 8}{4x - 4}\right)^2 \newline 
 y(0) = 4
 \end{cases}
-```
+$$
 
 ---
 
