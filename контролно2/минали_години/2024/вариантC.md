@@ -17,12 +17,10 @@ $$y''-y'+2y = \mathrm{e}^{x} \sin^2(x)$$
 Дадена е следната система:
 
 $$
-\left|
-\begin{aligned}
-& \dot{x} = x + 4y \newline
-& \dot{y} = 3x + 2y
-\end{aligned}
-\right.
+\begin{cases}
+\dot{x} = x + 4y \newline
+\dot{y} = 3x + 2y
+\end{cases}
 $$
 
 Намерете равновесните точки и определете техния вид. Начертайте фазов портрет.
