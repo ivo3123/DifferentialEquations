@@ -17,12 +17,12 @@ $$
 
 Решете следната задача на Дирихле:
 
-$$
+```math
 \begin{cases}
 u_{tt} - 3u_{xx} = 0 \quad & 2 < x < 3, \space t > 0 \newline
 u|_{t=0} = x^5+2x^2,\space u_t|_{t=0} = x \ln(x) \quad & 2 \le x \le 3
 \end{cases}  
-$$
+```
 
 ## Теория
 
