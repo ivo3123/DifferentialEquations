@@ -1,1 +1,18 @@
 script.sh
+
+# Files, produced by LaTeX
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.toc
+*.lof
+*.lot
+*.fls
+*.out
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
