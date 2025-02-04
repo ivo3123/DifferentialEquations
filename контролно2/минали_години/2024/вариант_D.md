@@ -22,8 +22,8 @@ $$y''+2y'+2y =  \dfrac{1}{\mathrm{e}^x\cos^3{x}}$$
 
 $$
 \begin{cases}
-\dot{x} = x + 4y \newline
-\dot{y} = 3x + 2y
+\dot{x} = 2x - 4y \newline
+\dot{y} = -3x + 4y
 \end{cases}
 $$
 
