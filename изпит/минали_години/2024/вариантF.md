@@ -6,6 +6,34 @@
 
 $$(x+1)^2y' = \mathrm{e}^{\frac{1}{x+1}}(2y - 3)^2$$
 
+---
+
+<details>
+    <summary>Решение</summary>
+
+Разглеждаме $(2y-3)^2 = 0$
+
+$y = \dfrac{3}{2}$ е решение
+
+Делим на $(2y-3)^2 \ne 0$
+
+$$\dfrac{y'}{(2y-3)^2} = \dfrac{\mathrm{e}^{x+1}}{(x+1)^2}$$
+
+$$\displaystyle\int\dfrac{y'}{(2y-3)^2}\space dx = \int\dfrac{\mathrm{e}^{\frac{1}{x+1}}}{(x+1)^2}\space dx$$
+
+$$\displaystyle\dfrac{1}{2}\int\dfrac{1}{(2y-3)^2}\space d(2y-3) = \int\dfrac{\mathrm{e}^{\frac{1}{x+1}}}{(x+1)^2}\space d(x+1)$$
+
+В десния интеграл внасяме $\dfrac{1}{(x+1)^2}$ под диференциала
+
+$$\displaystyle\dfrac{1}{2}\int\dfrac{1}{(2y-3)^2}\space d(2y-3) = -\int\mathrm{e}^{\frac{1}{x+1}}\space d\left(\dfrac{1}{x+1}\right)$$
+
+$$-\dfrac{1}{2(2y-3)} = -\mathrm{e}^{\frac{1}{x+1}}+C$$
+
+$$y=\dfrac{1}{4\mathrm{e}^{\frac{1}{x+1}}+C}+\dfrac{3}{2}$$
+</details>
+
+---
+
 ### Задача 2
 
 Тип на задачата: уравнението на струната
