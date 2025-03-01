@@ -90,7 +90,63 @@ $$y = x^2(y')^2 + x\ln(x)y' + 1$$
 <details>
     <summary>Решение</summary>
 
-Още няма решение :(
+Полагаме $z(x)=y'(x)$
+
+$$y=x^2z^2+x\ln{x}z+1\qquad (*)$$
+
+Диференцираме у-нието $(*)$ по $x$
+
+$$y'=2xz^2+2x^2zz'+(x\ln{x})'z+x\ln{x}z'$$
+
+$$z=2xz^2+2x^2zz'+(\ln{x}+1)z+x\ln{x}z'$$
+
+$$\not{z}=2xz^2+2x^2zz'+\ln{x}z++\not{z}+x\ln{x}z'$$
+
+$$0=2xz^2+2x^2zz'+\ln{x}z+x\ln{x}z'$$
+
+$$0=2xz(z+xz')+\ln{x}(z+xz')$$
+
+$$0=(z+xz')(2xz+\ln{x})$$
+
+**Първи случай**: $z+xz'=0$
+
+$$z'x=-z$$
+
+Проверяваме дали $z\equiv 0$ е решение, като заместим в $(*)$. $y=1$ е решение.
+
+Делим на $z\ne 0$
+
+$$\dfrac{z'}{z} = -\dfrac{1}{x}$$
+
+Интегрираме по $x$
+
+$$\displaystyle \int\dfrac{1}{z}\space dz = -\int\dfrac{1}{x}\space dx$$
+
+$$\ln{|z|}=\ln{|x|}+C$$
+
+$$\mathrm{e}^{\ln{|z|}}=\mathrm{e}^{\ln{|\frac{1}{x}|}+C}$$
+
+$$|z|=\mathrm{e}^C\left|\dfrac{1}{x}\right|$$
+
+$$z=\pm C_1\dfrac{1}{x}$$
+
+$$z=C_2\dfrac{1}{x}$$
+
+Заместваме в $(*)$ с $z$
+
+$$y = C_2^2+C_2\ln{x}+1$$
+
+**Втори случай:** $2xz+\ln{x}=0$
+
+$$z=-\dfrac{\ln{x}}{2x}$$
+
+Заместваме в $(*)$ с $z$
+
+$$y = x^2\dfrac{\ln^2{x}}{4x^2}-x\ln{x}\dfrac{\ln{x}}{2x}+1$$
+
+$$y=\dfrac{\ln^2{x}}{4}-\dfrac{\ln^2{x}}{2}+1$$
+
+$$y=-\dfrac{\ln^2{x}}{4}+1$$
 </details>
 
 ---
