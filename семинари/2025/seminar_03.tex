@@ -1,0 +1,481 @@
+\documentclass{scrartcl}
+\usepackage{graphicx}  % required for inserting images
+\usepackage{float}
+
+% for cyrillic and Bulgarian language
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[bulgarian]{babel}
+
+% math packages
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{ragged2e}  % adds FlushLeft
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    language=Octave,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,
+    captionpos=b,
+    keepspaces=false,                 
+    %numbers=left,                    
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    basicstyle=\ttfamily\footnotesize,
+    columns=fullflexible
+}
+
+\lstset{style=mystyle}
+
+\title{Семинар 03}
+\author{Ивайло Андреев}
+\date{6 март 2025}
+
+\begin{document}
+\maketitle  % template title
+
+\section{Уравнения от вид на дробно-линейна функция}
+
+\subsection{Общ случай}
+
+Уравнение от вид на дробно-линейна функция наричаме ДУ от следния вид:
+
+$$y' = f\left(\dfrac{ax+by+c}{mx+ny+p}\right)$$
+
+Нека разгледаме правите:
+
+$$
+\begin{cases}
+l_1 := ax+by+c = 0 \\
+l_2 := mx+ny+p = 0
+\end{cases}
+$$
+
+Ако $l_1 || l_2$ или $l_1 \equiv l_2$, то даденото уравнение е от вид на линейна функция.
+
+Ако системата е определена, то я решаваме и намираме решението и $(x_0, y_0)$.
+
+Полагаме:
+
+$$u = x - x_0$$
+
+$$v = y - y_0$$
+
+Изразяваме $y'$
+
+$$y(x) = v(u) + y_0$$
+
+$$y'(x) = v'(u)$$
+
+$$v' = f\left(\dfrac{a(u+x_0) + b(v+y_0) + c}{m(u+x_0) + n(v+y_0) + p}\right)$$
+
+$$v' = f\left(\dfrac{au + bv + [ax_0 + by_0 + c]}{mu + nv + [mx_0 + ny_0 + p]}\right)$$
+
+Изразите в скобите са точно решенията на системата и съответно са равни на $0$.
+
+$$v' = f\left(\dfrac{au + bv}{mu + nv}\right)$$
+
+Делим в числител и в знаменател на $u \ne 0$.
+
+$$v' = f\left(\dfrac{a + b\frac{v}{u}}{m + n\frac{v}{u}}\right)$$
+
+Получихме хомогенно уравнение.
+
+\subsection{2023г., контролно 1, вариант x, задача 2}
+
+$$y' = \dfrac{3y-3x-3}{y+3x+3}$$
+
+Решаваме системата
+
+$$
+\begin{cases}
+3y-3x-3=0\\
+y+3x+3 = 0
+\end{cases}
+$$
+
+Решението на системата е $(x_0, y_0) = (-1, 0)$
+
+Полагаме
+
+$$u = x+1$$
+
+$$v = y$$
+
+$$v' = \dfrac{3v-3u+3-3}{v+3u-3+3} = \dfrac{3v-3u}{v+3u} = \dfrac{3\frac{v}{u}-3}{\frac{v}{u}+3}$$
+
+Получихме хомогенно уравнение
+
+Полагаме
+
+$$z = \dfrac{v}{u}$$
+
+Така
+
+$$v = zu$$
+
+$$v' = z'u + z$$
+
+Заместваме в уравнението
+
+$$z'u + z = \dfrac{3z-3}{z+3}$$
+
+$$z'u = \dfrac{3z-3}{z+3} - z$$
+
+$$z'u = \dfrac{3z-3}{z+3} - \dfrac{z^2+3z}{z+3}$$
+
+$$z'u = \dfrac{-z^3-3}{z+3}$$
+
+$$\dfrac{z+3}{z^2+3}z' = -\dfrac{1}{u}$$
+
+$$\displaystyle \int \dfrac{z+3}{z^2+3} \space dz = -\int \dfrac{1}{u} \space du$$
+
+$$\displaystyle \int \dfrac{z}{z^2+3} \space dz + 3\int \dfrac{1}{z^2+3} \space dz = -\int \dfrac{1}{u} \space du$$
+
+$$\displaystyle \dfrac{1}{2}\int \dfrac{1}{z^2+3} \space d(z^2+3) + \sqrt{3}\int \dfrac{1}{(\frac{z}{\sqrt{3}})^2+1} \space d\frac{z}{\sqrt{3}} = -\int \dfrac{1}{u} \space du$$
+
+$$\dfrac{1}{2}\ln{|z^2+3|}+\sqrt{3}\arctan{\frac{z}{\sqrt{3}}}=-\ln{|u|}+C$$
+
+$$\dfrac{1}{2}\ln{\left|\left(\frac{y}{x+1}\right)^2+3\right|}+\sqrt{3}\arctan{\left(\dfrac{1}{\sqrt{3}}\times\dfrac{y}{x+1}\right)}=-\ln{|x+1|}+C$$
+
+\subsection{2024г., контролно 1, вариант C, задача 1}
+
+$$
+\begin{cases}
+y' = \left(\dfrac{y+4x-8}{4x-4}\right)^2\\
+y(0) = 4
+\end{cases}
+$$
+
+Решаваме системата
+
+$$
+\begin{cases}
+y+4x-8=0\\
+4x-4 = 0
+\end{cases}
+$$
+
+Решението на системата е $(x_0, y_0) = (1, 4)$
+
+Полагаме
+
+$$u = x-1$$
+
+$$v = y - 4$$
+
+$$v' = \left(\dfrac{v+4+4u+4-8}{4u+4-4}\right)^2 = \left(\dfrac{v+4u}{4u}\right)^2 = \left(\dfrac{v}{4u}+1\right)^2$$
+
+Получихме хомогенно уравнение
+
+Полагаме
+
+$$z = \dfrac{v}{u}$$
+
+Така
+
+$$v = zu$$
+
+$$v' = z'u + z$$
+
+Заместваме в уравнението
+
+$$z'u + z = \dfrac{1}{16}(z+4)^2$$
+
+$$16z'u + 16z = z^2+8z+16$$
+
+$$16z'u = z^2-8z+16$$
+
+$$16z'u = (z-4)^2$$
+
+$$\dfrac{z'}{(z-4)^2} = \dfrac{1}{16u}$$
+
+$$\displaystyle \int\dfrac{1}{(z-4)^2}\space d(z-4) = \dfrac{1}{16}\int\dfrac{1}{u}\space du$$
+
+$$-\dfrac{1}{z-4} = \dfrac{\ln{|u|}}{16} + C$$
+
+$$z = 4 - \dfrac{16}{16C+\ln{|u|}}$$
+
+$$\dfrac{y-4}{x-1} = 4-\dfrac{16}{16C+\ln{|x-1|}}$$
+
+Прилагаме началното условие $y(0) = 4$
+
+$$\dfrac{4-4}{0-1} = 4 - \dfrac{16}{\ln{|-1|} + 16C}$$
+
+$$0 = 4-\dfrac{16}{16C}$$
+
+$$C = \dfrac{1}{4}$$
+
+Така получаваме окончателно решение
+
+$$y = 4 + (x-1)\left(4-\dfrac{16}{4+\ln{|x-1|}}\right)$$
+
+\section{Линейни уравнения от първи ред}
+
+Линейно уравнение от първи ред наричаме ДУ от следния вид:
+
+$$y'(x) = a(x)y(x) + b(x)$$
+
+където $a(x), b(x)$ са непрекъснати функции в затворен интервал.
+
+Общото решение се дава със следната формула:
+
+$$y(x) = \displaystyle e^{\int a(x)\space dx}\left( C + \int b(x) e^{-\int a(x) \space dx} \space dx \right)$$
+
+\subsection{Задача 1.5.3 от учебника на проф. Огнян Христов}
+
+$$y' = -y\sin{x} + \mathrm{e}^{\cos{x}}$$
+
+$$a(x) = -\sin{x}$$
+
+$$b(x) = \mathrm{e}^{\cos{x}}$$
+
+Формулата изисква да сметнем интегралите $I = \int a(x) \space dx$ и $-I$
+
+$$I = \int -\sin{x} \space dx = \cos{x} + C_1$$
+
+$$-I = -\cos{x} - C_1$$
+
+Прилагаме формулата
+
+$$y = \mathrm{e}^I\left(C + \int \mathrm{e}^{\cos{x}}\mathrm{e}^{-I}\space dx\right)$$
+
+$$y = \mathrm{e}^{\cos{x}+C_!}\left(C + \int \mathrm{e}^{\cos{x}}\mathrm{e}^{-\cos{x}-C_1}\space dx\right)$$
+
+$$y = \mathrm{e}^{C_1}\mathrm{e}^{\cos{x}}\left(C + \mathrm{e}^{-C_1}\int \mathrm{e}^{\cos{x}}\mathrm{e}^{-\cos{x}}\space dx\right)$$
+
+$$y = \mathrm{e}^{C_1}\mathrm{e}^{\cos{x}}\left(C + \mathrm{e}^{-C_1}\int \mathrm{e}^{\cos{x}-\cos{x}}\space dx\right)$$
+
+$$y = \mathrm{e}^{C_1}\mathrm{e}^{\cos{x}}\left(C + \mathrm{e}^{-C_1}\int dx\right)$$
+
+Също виждаме, че втората константа може да бъде елиминирана лесно. Обикновено дори не пишем произволната константа при примитивните в такъв тип задачи освен ако няма конкретна причина - например ако искаме константата да разкрие модул.
+
+$$y = \mathrm{e}^{\cos{x}}\left(\mathrm{e}^{C_1}C + \mathrm{e}^{C_1}\mathrm{e}^{-C_1}\int dx\right)$$
+
+$$y = \mathrm{e}^{\cos{x}}\left(C_2 + \int dx\right)$$
+
+$$y = \mathrm{e}^{\cos{x}}\left(C_2 + x + C_3 \right)$$
+
+$$y = \mathrm{e}^{\cos{x}}\left(C_4 + x\right)$$
+
+\subsection{2024г., изпит-задачи, вариант D, задача 1}
+
+$$x(x+2)^2y' = 4(x+2)y + x(x+1)$$
+
+$$y' = \dfrac{4}{x(x+2)}y+\dfrac{x+1}{(x+2)^2}$$
+
+$$a(x) = \dfrac{4}{x(x+2)}$$
+
+$$b(x) = \dfrac{x+1}{(x+2)^2}$$
+
+Формулата изисква да сметнем интегралите $I = \int a(x) \space dx$ и $-I$
+
+\begin{align*}
+\displaystyle I
+&= \int a(x) \space dx\\
+&= \int\dfrac{4}{x(x+2)} \space dx\\
+&= 4\int\left(\dfrac{A}{x} + \dfrac{B}{x+2}\right)\space dx\\
+\end{align*}
+
+$$\dfrac{A}{x} + \dfrac{B}{x+2} = \dfrac{1}{x(x+2)} = \dfrac{Ax+2A+Bx}{x(x+2)}$$
+
+$$(B+A)x+2A=0x+1$$
+
+Така
+
+$$B+A=0;\quad 2A=1\implies A=\dfrac{1}{2};\space B=-\dfrac{1}{2}$$
+
+\begin{align*}
+\displaystyle I
+&= 4\int\left(\dfrac{A}{x} + \dfrac{B}{x+2}\right)\space dx\\
+&= 4\int\left(\dfrac{1}{2x} - \dfrac{1}{2(x+2)}\right)\space dx\\
+&= 2\int\dfrac{1}{x}\space dx - 2\int\dfrac{d(x+2)}{x+2}\\
+&= 2\ln{|x|} - 2\ln{|x+2|}\\
+&= 2(\ln{|x|} - \ln{|x+2|})\\
+&= 2\ln{\left|\dfrac{x}{x+2}\right|}\\
+&= \ln{\left|\dfrac{x}{x+2}\right|^2}\\
+&= \ln{\left(\dfrac{x}{x+2}\right)^2}
+\end{align*}
+
+\begin{align*}
+\displaystyle -I
+&= -\ln{\left(\dfrac{x}{x+2}\right)^2}\\
+&= \ln{\left(\dfrac{x}{x+2}\right)^{-2}}\\
+&= \ln{\left(\dfrac{x+2}{x}\right)^{2}}\\
+\end{align*}
+
+$$y = \mathrm{e}^{\ln{\left(\dfrac{x}{x+2}\right)^2}}\left(C+\int\dfrac{x+1}{(x+2)^2}\mathrm{e}^{\ln{\left(\dfrac{x+2}{x}\right)^2}}\space dx\right)$$
+
+$$y = \left(\dfrac{x}{x+2}\right)^2\left(C+\int\dfrac{x+1}{(x+2)^2}{\dfrac{(x+2)^2}{x^2}}\space dx\right)$$
+
+$$y = \left(\dfrac{x}{x+2}\right)^2\left(C+\int\dfrac{x+1}{1}{\dfrac{1}{x^2}}\space dx\right)$$
+
+$$y = \left(\dfrac{x}{x+2}\right)^2\left(C+\int\dfrac{1}{x}\space dx + \int\dfrac{1}{x^2}\space dx\right)$$
+
+$$y = \left(\dfrac{x}{x+2}\right)^2\left(C+\ln{|x|}-\dfrac{1}{x}\right)$$
+
+\section{Уравнение на Бернули}
+
+\subsection{Общ случай}
+
+Уравнение на Бернули наричаме ДУ от следния вид:
+
+$$y'(x) = a(x)y(x) + b(x)y^n$$
+
+където $a(x), b(x)$ са непрекъснати функции в затворен интервал и $n \in \mathbb{R}$.
+
+Ако $n = 0$ получаваме линейно уравнение.
+
+Ако $n = 1$ получаваме уравнение с разделящи се променливи.
+
+Делим на $y^n$ при $y \ne 0$.
+
+$$\dfrac{y'}{y^n} = a(x)y^{1-n}+b(x)$$
+
+$$\text{Полагаме } z = y^{1-n}$$
+
+$$z' = (1-n)y^{-n}y'$$
+
+$$y' = \dfrac{z'y^n}{1-n}$$
+
+Заместваме в даденото уравнение.
+
+$$\dfrac{z'y^n}{(1-n)y^n} = a(x)z+b(x)$$
+
+$$z' = (1-n)a(x)z+(1-n)b(x)$$
+
+Получаваме линейно уравнение.
+
+\subsection{2024г., контролно 1, вариант F, задача 1}
+
+$$
+\begin{cases}
+3(1+x)(1-x)^2y' = 4(x-1)y - 3(x+1)^3\mathrm{e}^{-2x}y^4\\
+y(0) = \sqrt[3]{2}
+\end{cases}
+$$
+
+$$y' = \dfrac{4}{3}\dfrac{1}{(x+1)(x-1)}y-\dfrac{(x+1)^2}{(x-1)^2}\mathrm{e}^{-2x}y^4$$
+
+Вижда се, че $y\equiv 0$ е решение на ДУ, но не на задачата на Коши.
+
+Делим на $y^4\ne 0$
+
+$$\dfrac{y'}{y^4} = \dfrac{4}{3}\dfrac{1}{(x+1)(x-1)}y^{-3}-\dfrac{(x+1)^2}{(x-1)^2}\mathrm{e}^{-2x}$$
+
+Полагаме $z(x) = y^{-3} = \dfrac{1}{y^3}$
+
+Тогава $z'(x) = -3y^{-4}(x)y'(x) \implies y' = -\dfrac{z'y^4}{3}$
+
+$$-\dfrac{z'y^4}{3}\dfrac{1}{y^4} = \dfrac{4}{3}\dfrac{1}{(x+1)(x-1)}z-\dfrac{(x+1)^2}{(x-1)^2}\mathrm{e}^{-2x}$$
+
+$$z' = -4\dfrac{1}{(x+1)(x-1)}z+3\dfrac{(x+1)^2}{(x-1)^2}\mathrm{e}^{-2x}$$
+
+$$a(x) = -4\dfrac{1}{(x+1)(x-1)}; \quad b(x) = 3\dfrac{(x+1)^2}{(x-1)^2}\mathrm{e}^{-2x}$$
+
+$$\displaystyle I = \int a(x)\space dx = -4\int \dfrac{1}{(x+1)(x-1)}\space dx = -4\int\left(\dfrac{A}{x+1}+\dfrac{B}{x-1}\right)\space dx$$
+
+$$\dfrac{1}{(x+1)(x-1)} = \dfrac{A}{x+1}+\dfrac{B}{x-1} = \dfrac{Ax-A+Bx+B}{(x+1)(x-1)}$$
+
+$$x(A+B)+(B-A)=0x+1$$
+
+$$B-A=1;\quad A+B=0$$
+
+$$A=-\dfrac{1}{2};\quad B=\dfrac{1}{2}$$
+
+$$\displaystyle I -4\left(\dfrac{1}{2}\int\dfrac{1}{x-1}\space d(x-1)-\dfrac{1}{2}\int\dfrac{1}{x+1}\space d(x+1)\right)$$
+
+$$I = 2(\ln{|x+1|}-\ln{|x-1|})$$
+
+$$I = 2 \ln{\dfrac{x+1}{x-1}} = \ln{\left(\dfrac{x+1}{x-1}\right)^2}$$
+
+$$-I = -\ln{\left(\dfrac{x+1}{x-1}\right)^2} = \ln{\left(\dfrac{x+1}{x-1}\right)^{-2}} = \ln{\left(\dfrac{x-1}{x+1}\right)^2}$$
+
+$$z=\dfrac{(x+1)^2}{(x-1)^2}\left(C+3\int\dfrac{(x-1)^2}{(x+1)^2}\dfrac{(x+1)^2}{(x-1)^2}\mathrm{e}^{-2x}\space dx\right)$$
+
+$$z=\dfrac{(x+1)^2}{(x-1)^2}\left(C-\dfrac{3}{2}\int\mathrm{e}^{-2x}\space d(-2z)\right)$$
+
+$$z=\dfrac{(x+1)^2}{(x-1)^2}\left(C-\dfrac{3}{2}\mathrm{e}^{-2x}\right)$$
+
+Прилагаме началното условие
+
+$$\dfrac{1}{2}=1\left(C-\dfrac{3}{2}\right)$$
+
+$$C=2$$
+
+Така решението на задачата на Коши е:
+
+$$\dfrac{1}{y^3} = \left(\dfrac{x+1}{x-1}\right)^2\left(2-\dfrac{\mathrm{e}^{-2x}}{2}\right)$$
+
+\subsection{2022г., контролно 1, вариант 2, задача 1}
+
+$$
+\begin{cases}
+-5x\dfrac{y'}{y^6} = \dfrac{2}{y^5} + x^3\mathrm{e}^x\cos{x} \\
+y\left(\dfrac{3\pi}{4}\right) = 1
+\end{cases}
+$$
+
+Полагаме $z(x) = y^{-5} = \dfrac{1}{y^5}$
+
+Тогава $z'(x) = -5y^{-6}(x)y'(x) \implies y' = -\dfrac{z'y^6}{5}$
+
+$$-5x\dfrac{1}{y^6}y^6\dfrac{1}{-5}z'=2z+x^3\mathrm{e}^x\cos{x}$$
+
+$$z'=\dfrac{2}{x}z+x^2\mathrm{e}^x\cos{x}$$
+
+$$a(x) = \dfrac{2}{x};\quad b(x) = x^2\mathrm{e}^x\cos{x}$$
+
+$$\displaystyle I=\int a(x)\space dx = 2\int\dfrac{1}{x}\space dx = 2\ln{|x|} = \ln{x^2}$$
+
+$$-I = -\ln{x^2} = \ln{x^{-2}}$$
+
+$$z = x^2\left(C+\int\mathrm{e}^x\cos{x}\space dx\right)$$
+
+$$J = \displaystyle\int \mathrm{e}^x\cos{x} \space dx$$
+
+$$J = \displaystyle\int \mathrm{e}^x \space d\sin{x}$$
+
+$$J = \mathrm{e}^{x}\sin{x} - \displaystyle\int \sin{x} \space d\mathrm{e}^x$$
+
+$$J = \mathrm{e}^{x}\sin{x} - \displaystyle\int \sin{x} \space d\mathrm{e}^x$$
+
+$$J = \mathrm{e}^{x}\sin{x} + \displaystyle\int \mathrm{e}^x \space d\cos{x}$$
+
+$$J = \mathrm{e}^{x}\sin{x} + \mathrm{e}^{x}\cos{x} - \displaystyle\int \mathrm{e}^x\cos{x} \space dx$$
+
+$$J = \mathrm{e}^{x}\sin{x} + \mathrm{e}^{x}\cos{x} - J + C^*$$
+
+$$J = \dfrac{\mathrm{e}^x(\sin{x} + \cos{x})}{2} + C$$
+
+$$z = x^2\left(C+\dfrac{\mathrm{e}^x(\sin{x} + \cos{x})}{2}\right)$$
+
+$$\dfrac{1}{y^5} = x^2\left(C+\dfrac{\mathrm{e}^x(\sin{x} + \cos{x})}{2}\right)$$
+
+Прилагаме началното условие $y\left(\dfrac{3\pi}{4}\right) = 1$
+
+$$1=\dfrac{9}{16}\pi^2C \implies C=\dfrac{16}{9\pi^2}$$
+
+$$\dfrac{1}{y^5} = x^2\left(\dfrac{16}{9\pi^2}+\dfrac{\mathrm{e}^x}{2}(\sin{x}+\cos{x})\right)$$
+
+\end{document}
