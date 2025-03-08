@@ -75,7 +75,7 @@ $$\dfrac{1}{y^3} = \left(\dfrac{x+1}{x-1}\right)^2\left(2-\dfrac{\mathrm{e}^{-2x
 
 Решете уравнението:
 
-$$y'' = 2\mathrm{e}^y y'(y'-3)$$
+$$y'' = 2\mathrm{e}^y y'(y'-3)^2$$
 
 ---
 
