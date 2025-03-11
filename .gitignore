@@ -2,6 +2,10 @@
 
 script.sh
 tex_template.txt
+help_octave.txt
+test*
+
+demos/*
 
 # Files, produced by LaTeX
 
