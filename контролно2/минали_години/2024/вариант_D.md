@@ -22,7 +22,7 @@ $$y''+2y'+2y =  \dfrac{1}{\mathrm{e}^x\cos^3{x}}$$
 
 $$
 \begin{cases}
-\dot{x} = 2x - 4y \newline
+\dot{x} = 2x - y \newline
 \dot{y} = -3x + 4y
 \end{cases}
 $$
